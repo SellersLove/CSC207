@@ -1,0 +1,91 @@
+package phaseii;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class test {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		//demoClientManagerRead();
+		//demoCreatClients();
+		demoCreatFlights();
+		//demoFlightManger();
+		//demoReadCSV();
+    }
+	
+	public static void demoClientManagerRead() throws IOException, ClassNotFoundException {
+
+        String csvPath ="/Users/Ray/Desktop/Bi-clients.csv";
+        ClientManager cm = new ClientManager(csvPath);    
+        System.out.println(cm);
+        
+
+        // loads data from CSV for first launch of the program
+        
+ 
+       
+    }
+	
+	public static void demoReadCSV() throws IOException, ClassNotFoundException {
+
+		String csvPath ="/Users/Ray/Desktop/sample.csv";
+        ClientManager cm = new ClientManager();
+        cm.readFromCSVFile(csvPath);
+        System.out.println(cm);
+
+    }
+	
+
+	
+	public static void demoFlightManger() throws IOException, ClassNotFoundException {
+		
+		String csvPath ="/Users/Ray/Desktop/flights.csv";
+        FlightManager fm = new FlightManager(csvPath);
+        System.out.println(fm);
+
+	}
+	public static void demoCreatClients() throws IOException, ClassNotFoundException{
+		
+		String csvPath ="/Users/Ray/Desktop/Bi-client.csv";
+		ClientManager cm = new ClientManager();
+		Client a = new Client("lastname","firstname","a",
+        		"address","crdit card","ccExpDate" );
+        Client b = new Client("lastname","firstname","b",
+        		"address","crdit card","ccExpDate" );
+        Client c = new Client("lastname","firstname","c",
+        		"address","crdit card","ccExpDate" );
+        Client d = new Client("lastname","firstname","d",
+        		"address","crdit card","ccExpDate" );
+        Client e = new Client("lastname","firstname","e",
+        		"address","crdit card","ccExpDate" );
+        Client f = new Client("lastname","firstname","f",
+        		"address","crdit card","ccExpDate" );
+        Client g = new Client("lastname","firstname","g",
+        		"address","crdit card","ccExpDate" );
+        Client h = new Client("lastname","firstname","h",
+        		"address","crdit card","ccExpDate" );
+        Client i = new Client("lastname","firstname","i",
+        		"address","crdit card","ccExpDate" );
+        Client j = new Client("lastname","firstname","j",
+        		"address","crdit card","ccExpDate" );
+        cm.add(a);
+        cm.add(b);
+        cm.add(c);
+        cm.add(d);
+        cm.add(e);
+        cm.add(f);
+        cm.add(g);
+        cm.add(i);
+        cm.add(j);
+        System.out.println(cm);
+        cm.saveToFile(csvPath);
+		
+	}
+	public static void demoCreatFlights() throws FileNotFoundException{
+		String csvPath ="/Users/Ray/Desktop/Flight.csv";
+        FlightManager fm = new FlightManager();
+        fm.readFromCSVFile(csvPath);
+        System.out.println(fm);
+		
+	}
+
+}

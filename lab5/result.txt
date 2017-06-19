@@ -1,0 +1,78 @@
+Java Automatic Marker 0.1.0
+
+********************************************************************************
+*                     Tests results for BoundedWaitListTest                    *
+********************************************************************************
+Test case for add(E) not changing a full BoundedWaitList failed because of a 
+NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+Test case for add(E) not changing a BoundedWaitList with 0 Capacity failed 
+because of a NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+Test case for the BoundedWaitList constructor failed because of a 
+NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+Test case for getCapacity() returning the correct value failed because of a 
+NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+Test case for add(E) adding an element to a BoundedWaitList correctly failed 
+because of a NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+Test case for getCapacity() returning the correct value failed because of a 
+NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+Test case for remove() removing the correct element from a BoundedWaitList 
+failed because of a NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+Test case for add(E) adding elements to a BoundedWaitList correctly failed 
+because of a NoSuchMethodError.
+    Why do I have a NoSuchMethodError?
+        Your program includes a call to a non-existent method, is missing a 
+        method, orone of the expected methods was not defined (possibly due to 
+        an incorrectmethod signature).
+
+********************************************************************************
+*                      Tests results for UnfairWaitListTest                    *
+********************************************************************************
+Test case for remove(E) removing the correct element from an UnfairWaitList 
+failed because of a NoClassDefFoundError.
+    Why do I have a NoClassDefFoundError?
+        One of the files in your submission coult not be compiled or were 
+        located in the wrong package. Some tests were not run as a result.
+    Details:
+        Unable to find class w5lab.UnfairWaitList.
+
+
+********************************************************************************
+*                        SUMMARY @ 2015/02/12 10:42:58                         *
+********************************************************************************
+    Tests passed: 1
+    Tests run: 10

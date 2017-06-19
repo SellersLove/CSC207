@@ -1,0 +1,73 @@
+package phaseii;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Itinerary{
+	
+	public List<Flight> itinerary;
+	
+	public Itinerary(){
+		
+		this.itinerary = new ArrayList<Flight>();
+	}
+	
+	@Override
+	
+	public String toString() {
+		String result = itinerary.get(0).toString();
+		for(int i = 1; i < itinerary.size(); i++){
+			result = result + "\n" + itinerary.get(i);
+		}
+		return result;
+	}
+
+	public Itinerary(List<Flight> itinerary){
+		
+		this.itinerary = itinerary;
+	}
+	
+
+	public void append(Flight flight){
+		this.itinerary.add(flight);
+	}
+	
+	public int totaltime(){
+		int totaltime = 0;
+		for(Flight flight: itinerary){
+			totaltime = totaltime + flight.convertMin();
+		}
+		return totaltime;
+	}
+	
+	public double totalcost(){
+		double totalcost = 0;
+		for(Flight flight: itinerary){
+			totalcost = totalcost + flight.price;
+		}
+		return totalcost;
+	}
+	
+	public int size(){
+		
+		return this.itinerary.size();
+		 
+	 }
+	public Flight lastFlight(){
+		
+		return this.itinerary.get(this.itinerary.size()-1);
+	
+	}
+	
+	public void addItinerary(Itinerary itinerary){
+		
+		for(Flight e : itinerary.itinerary){
+			this.itinerary.add(e);
+		}
+	
+	}
+	
+
+}

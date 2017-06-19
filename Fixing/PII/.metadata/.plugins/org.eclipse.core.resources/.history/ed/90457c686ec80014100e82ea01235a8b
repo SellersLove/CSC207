@@ -1,0 +1,269 @@
+package phaseii;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * Manages the saving and loading of Flights..
+ */
+
+public class FlightManager {
+	
+	   /** A mapping of student ids to Students. */
+    private Map<String, List<Flight>> flights;
+    private static final Logger logger = 
+            Logger.getLogger(FlightManager.class.getPackage().getName());
+    
+    private static final Handler consoleHandler = new ConsoleHandler();
+    
+    public FlightManager(){
+    	this.flights = new HashMap<>();
+
+    }
+	
+    /**
+     * Creates a new empty FlightManager.
+     * @throws IOException 
+     * @throws ClassNotFoundException 
+     */
+    public FlightManager(String filePath) throws ClassNotFoundException, IOException {
+    	
+        this.flights = new HashMap<>();
+        
+        // Associate the handler with the logger.
+        logger.setLevel(Level.ALL);
+        consoleHandler.setLevel(Level.ALL);
+        logger.addHandler(consoleHandler);
+        
+        // Reads serializable objects from file.
+        // Populates the record list using stored data, if it exists.
+        File file = new File(filePath);
+        if (file.exists()) {
+            readFromFile(filePath);
+        } else {
+            file.createNewFile();
+        }
+    }
+    
+    /**
+     * Populates the records map from the file at path filePath.
+     * @param filePath the path of the data file  
+     * @throws FileNotFoundException if filePath is not a valid path
+     */
+    public void readFromCSVFile(String filePath) 
+            throws FileNotFoundException {
+
+        Scanner scanner = new Scanner(new FileInputStream(filePath));
+        String[] record;
+        Flight flight;
+
+        while(scanner.hasNextLine()) {
+            record = scanner.nextLine().split(",");
+            flight = new Flight(record[0], record[1], record[2], record[3], record[4],record[5],
+            		Double.parseDouble(record[6]));
+            if(flights.containsKey(flight.flightNum)){
+            	flights.get(flight.flightNum).add(flight);
+            }
+            else{
+            	List<Flight> temp = new ArrayList<Flight>(); 
+            		temp.add(flight);
+            		flights.put(flight.flightNum, temp);
+            }
+        }
+        scanner.close();
+    }
+    
+    /**
+     * Adds record to this StudentManager.
+     * @param record a record to be added.
+     */
+    public void add(Flight record) {
+    	
+    	if(flights.containsKey(record.flightNum)){
+         	flights.get(record.flightNum).add(record);
+         }
+         else{
+         	List<Flight> temp = new ArrayList<Flight>(); 
+         		temp.add(record);
+         		flights.put(record.flightNum, temp);
+         }
+    	
+       
+        // Log the addition of a flight.
+        logger.log(Level.FINE, "Added a new flight " + record.toString());
+    }
+    
+    /**
+     * Writes the students to file at filePath.
+     * @param filePath the file to write the records to
+     * @throws IOException 
+     */
+    public void saveToFile(String filePath) throws IOException {
+
+        OutputStream file = new FileOutputStream(filePath);
+        OutputStream buffer = new BufferedOutputStream(file);
+        ObjectOutput output = new ObjectOutputStream(buffer);
+
+        // serialize the Map
+        output.writeObject(flights);
+        output.close();
+    }
+
+    @SuppressWarnings("unchecked")
+	private void readFromFile(String path) throws ClassNotFoundException {
+
+        try {
+            InputStream file = new FileInputStream(path);
+            InputStream buffer = new BufferedInputStream(file);
+            ObjectInput input = new ObjectInputStream(buffer);
+
+            //deserialize the Map
+            this.flights = (Map<String, List<Flight>>) input.readObject();
+            input.close();
+        } catch (IOException ex) {
+            logger.log(Level.SEVERE, "Cannot read from input.", ex);
+        }    	
+    }
+    /**
+     * 
+     * @param departDate 
+     * @param origin
+     * @param destination
+     * @return return a Itinerary with contains all flights with given 
+     * departureDate, origin and destination.
+     */
+    public Itinerary getFlight(String departDate,String origin, 
+			String destination){
+    	
+    	Itinerary temp = new Itinerary();
+    	
+ 		for(Map.Entry<String, List<Flight>> entry: flights.entrySet()){
+ 			for(Flight flight : entry.getValue()){
+ 				if(flight.departDate.equals(departDate)){
+ 					if(flight.origin.equals(origin)){
+ 						if(flight.destination.equals(destination)){
+ 								temp.append(flight);
+ 						}
+ 					}
+ 				}
+ 			}
+ 		}
+ 		return temp;
+	}
+    /**
+     * 
+     * @param departDate
+     * @param origin
+     * @param destination
+     * @return all flights with same  departDate, origin as required
+     */
+    public Itinerary getItinerariesHelper1(String departDate,String origin){
+  
+    	Itinerary temp = new Itinerary();
+ 		for(Map.Entry<String, List<Flight>> entry: flights.entrySet()){
+ 			for(Flight flight : entry.getValue()){
+ 				if(flight.departDate.equals(departDate)){
+ 					if(flight.origin.equals(origin)){
+ 						temp.append(flight);
+ 					}
+ 				}
+ 			}
+		}
+ 		return temp;
+	}
+    
+    public void getItinerariesHelper2(String origin, 
+			String destination, List<Itinerary> ItineraryList, Itinerary temp){
+    	for(Map.Entry<String, List<Flight> entry: flights.entrySet()){
+    		
+    	}
+			
+    		
+	}
+    
+    public List<Itinerary> getItineraries(String departDate, String origin,
+    		String destination) {
+  		// TODO: complete this method body
+    	Itinerary start = this.getItinerariesHelper1(departDate,origin);
+    	List<Itinerary> ItineraryList = new ArrayList<Itinerary>();
+    	for(Flight flight: start.itinerary){
+    		Itinerary temp = new Itinerary();
+    		temp.append(flight);
+    		if(flight.destination.equals(destination)){
+    			ItineraryList.add(temp);
+    		}
+    		else
+    			this.getItinerariesHelper2(flight.destination, 
+    					destination,ItineraryList, temp);
+    	}
+    	return ItineraryList;
+      	
+  	}
+    
+    public List<Itinerary> sortByTime(List<Itinerary> TotalItinerary) {
+		Itinerary temp; 
+		for(int i = 0; i< TotalItinerary.size()-1; i++ ){
+			for(int j = 1; j < TotalItinerary.size()-1;j++){
+				if(TotalItinerary.get(j-1).totaltime() > TotalItinerary.get(j).totaltime()){
+					temp = TotalItinerary.get(j-1);
+					TotalItinerary.set(j-1, TotalItinerary.get(j));
+					TotalItinerary.set(j, temp);
+				}	
+				
+			}
+		}
+		return TotalItinerary;
+	}
+	
+	public List<Itinerary> sortByCost(List<Itinerary> TotalItinerary) {
+		
+		Itinerary temp; 
+		for(int i = 0; i< TotalItinerary.size()-1; i++ ){
+			for(int j = 1; j <TotalItinerary.size()-1;j++){
+				if(TotalItinerary.get(j-1).totalcost() > TotalItinerary.get(j).totalcost()){
+					temp = TotalItinerary.get(j-1);
+					TotalItinerary.set(j-1, TotalItinerary.get(j));
+					TotalItinerary.set(j, temp);
+				}	
+			}
+		}
+		return TotalItinerary;
+	}
+	
+	public Flight getFlight(String key){
+		return flights.get(key);
+	}
+	
+    @Override
+    public String toString() {
+        String result = "";
+        for (Flight r : flights.values()) {
+            result += r.toString() + "\n";
+        }
+        return result;
+    }
+}
+    
+
+    
+

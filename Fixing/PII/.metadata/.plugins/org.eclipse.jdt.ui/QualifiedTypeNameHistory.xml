@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="phaseii.ClientManager"/>
+<fullyQualifiedTypeName name="phaseii.FlightManager"/>
+<fullyQualifiedTypeName name="phaseii.Flight"/>
+<fullyQualifiedTypeName name="phaseii.Itinerary"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="driver.Driver"/>
+<fullyQualifiedTypeName name="javax.xml.datatype.Duration"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+</qualifiedTypeNameHistroy>

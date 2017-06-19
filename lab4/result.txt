@@ -1,0 +1,19 @@
+Java Automatic Marker 0.1.0
+
+********************************************************************************
+*                        Tests results for ArthropodTest                       *
+********************************************************************************
+Test case for getxCoord() returning the correct value with multiple Arthropods 
+failed because of a NoClassDefFoundError.
+    Why do I have a NoClassDefFoundError?
+        One of the files in your submission coult not be compiled or were 
+        located in the wrong package. Some tests were not run as a result.
+    Details:
+        Unable to find class week4lab.Arthropod.
+
+
+********************************************************************************
+*                        SUMMARY @ 2015/02/04 23:28:26                         *
+********************************************************************************
+    Tests passed: 87
+    Tests run: 88

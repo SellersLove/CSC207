@@ -1,0 +1,4 @@
+./mazegame/MobileBanana.java:13: error: invalid method declaration; return type required
+	public MoblieBanana(char symbol, int row, int column, int value) {
+	       ^
+1 error

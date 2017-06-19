@@ -1,0 +1,37 @@
+./week3lab/Book.java:68: error: illegal start of expression
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                     ^
+./week3lab/Book.java:68: error: ';' expected
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                      ^
+./week3lab/Book.java:68: error: illegal start of expression
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                                       ^
+./week3lab/Book.java:68: error: ';' expected
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                                        ^
+./week3lab/Book.java:68: error: illegal start of type
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                                                           ^
+./week3lab/Book.java:68: error: ';' expected
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                                                            ^
+./week3lab/Book.java:68: error: illegal start of type
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                                                                  ^
+./week3lab/Book.java:68: error: <identifier> expected
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                                                                   ^
+./week3lab/Book.java:68: error: ';' expected
+		 	Book JavaBook = new Book("Developing Java Software", {"Windser, Russel", "Roberts, Graham"}, 79.75, "978-0470090251");
+		 	                                                                                                                    ^
+./week3lab/Book.java:69: error: <identifier> expected
+	        System.out.println(JavaBook);
+	                          ^
+./week3lab/Book.java:69: error: <identifier> expected
+	        System.out.println(JavaBook);
+	                                   ^
+./week3lab/Book.java:74: error: class, interface, or enum expected
+}
+^
+12 errors

@@ -1,0 +1,9 @@
+./w5lab/Lab5.java:7: error: cannot infer type arguments for BoundedWaitList<>;
+        BoundedWaitList<Integer> wl2 = new BoundedWaitList<>(5);
+                                       ^
+  reason: cannot instantiate from arguments because actual and formal argument lists differ in length
+./w5lab/Lab5.java:8: error: cannot infer type arguments for UnfairWaitList<>;
+        UnfairWaitList<Integer> wl3 = new UnfairWaitList<>();
+                                      ^
+  reason: cannot instantiate from arguments because actual and formal argument lists differ in length
+2 errors
